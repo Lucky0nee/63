@@ -35,6 +35,10 @@ public:
 		printNewLine();
 	}
 
+	void Attack(Monster &monster) {
+		cout << "\"" << this->name << "\"" << " Attacked " << "\"" << monster.name << "\"" << " for " << this->damage << "hp"; printNewLine(); printNewLine();
+		monster.hp -= this->damage;
+	}
 protected:
 	string type = "Monster";
 	string name;
@@ -117,6 +121,10 @@ int main() {
 	troll.printMonster();
 
 	Orc orc("orc Alex"); 
+	orc.printMonster();
+
+	troll.Attack(orc);
+
 	orc.printMonster();
 
 	return 0;
