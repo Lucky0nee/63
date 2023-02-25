@@ -136,7 +136,9 @@ int main() {
 
 	goblin.Attack(troll); troll.printMonster();
 
+	// skip
 	zombie.Attack(monster);
+	// skip
 	orc.Attack(zombie);
 
 	return 0;
