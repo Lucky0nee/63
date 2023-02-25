@@ -46,7 +46,6 @@ class Orc : public Monster {
 public:
 	explicit Orc() {
 		this->type = "Orc";
-		this->name = "Orc";
 		this->hp = 130;
 		this->damage = 20;
 	}
@@ -62,7 +61,6 @@ class Troll : public Monster {
 public:
 	explicit Troll() {
 		this->type = "Troll";
-		this->name = "Troll";
 		this->hp = 145;
 		this->damage = 5;
 	}
@@ -78,7 +76,6 @@ class Zombie : public Monster {
 public:
 	explicit Zombie() {
 		this->type = "Zombie";
-		this->name = "Zombie";
 		this->hp = -90;
 		this->damage = 25;
 	}
@@ -94,7 +91,6 @@ class Goblin : public Monster {
 public:
 	explicit Goblin() {
 		this->type = "Goblin";
-		this->name = "Goblin";
 		this->hp = 40;
 		this->damage = 60;
 	}
