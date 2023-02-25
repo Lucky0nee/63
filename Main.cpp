@@ -35,9 +35,18 @@ public:
 		printNewLine();
 	}
 
-	void Attack(Monster &monster) {
-		cout << "\"" << this->name << "\"" << " Attacked " << "\"" << monster.name << "\"" << " for " << this->damage << "hp"; printNewLine(); printNewLine();
-		monster.hp -= this->damage;
+	void Attack(Monster& monster) {
+		if (this->hp > 0 && monster.hp > 0)
+			monster.hp -= this->damage;
+		else
+			return;
+
+		if (monster.hp > 0) {
+			cout << "\"" << this->name << "\"" << " Attacked " << "\"" << monster.name << "\"" << " for " << this->damage << "hp"; printNewLine(); printNewLine();
+		}
+		else {
+			cout << "\"" << this->name << "\"" << " Killed " << "\"" << monster.name << "\""; printNewLine(); printNewLine();
+		}
 	}
 protected:
 	string type = "Monster";
@@ -95,14 +104,14 @@ class Goblin : public Monster {
 public:
 	explicit Goblin() {
 		this->type = "Goblin";
-		this->hp = 40;
+		this->hp = 20;
 		this->damage = 60;
 	}
 	explicit Goblin(string name) {
 		this->type = "Goblin";
 		this->name = name;
 		this->hp = 40;
-		this->damage = 60;
+		this->damage = 160;
 	}
 };
 
@@ -123,9 +132,12 @@ int main() {
 	Orc orc("orc Alex"); 
 	orc.printMonster();
 
-	troll.Attack(orc);
+	troll.Attack(orc); orc.printMonster();
 
-	orc.printMonster();
+	goblin.Attack(troll); troll.printMonster();
+
+	zombie.Attack(monster);
+	orc.Attack(zombie);
 
 	return 0;
 }
